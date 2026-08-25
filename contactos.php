@@ -7,19 +7,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS propio -->
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
 
@@ -101,7 +101,6 @@
         </div>
     </nav>
 
-    <!-- Container -->
     <div class="container-fluid bg-warning p-4">
 
         <h1>Contacto</h1>
@@ -147,7 +146,7 @@
 
     </div>
 
-    <!-- Footer -->
+
     <div class="container-fluid bg-dark p-3">
 
         <div class="row">
@@ -164,14 +163,14 @@
 
     </div>
 
-    <!-- Modal -->
+
     <div class="modal fade" id="myModal">
 
         <div class="modal-dialog">
 
             <div class="modal-content">
 
-                <!-- Modal Header -->
+
                 <div class="modal-header">
 
                     <h4 class="modal-title">
@@ -185,7 +184,7 @@
 
                 </div>
 
-                <!-- Modal body -->
+
                 <div class="modal-body">
 
                     <form action="empresa.php" method="post">
@@ -239,7 +238,7 @@
 
                 </div>
 
-                <!-- Modal footer -->
+
                 <div class="modal-footer">
 
                     <button type="button"
@@ -256,11 +255,11 @@
 
     </div>
 
-    <!-- Bootstrap JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- JS propio -->
-    <script src="js/app.js"></script>
+
+    <script src="js/Pagina.js"></script>
 
 </body>
 
