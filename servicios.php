@@ -2,14 +2,16 @@
 <html lang="es">
 
 <head>
-    <title>Pagina Servicios</title>
+    <title>Servicios - Los Dos de Tamaulipas</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,7 +20,9 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">
+                Los Dos de Tamaulipas
+            </a>
 
             <button class="navbar-toggler"
                     type="button"
@@ -58,7 +62,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="contactos.php">
-                            Contactos
+                            Contacto
                         </a>
                     </li>
 
@@ -70,22 +74,33 @@
     </nav>
 
     <!-- Contenido -->
-    <div class="container mt-4">
+    <div class="container-fluid p-4"
+         style="background-color: orange; min-height: 500px;">
 
         <h1>Servicios</h1>
 
-        <p>Bienvenido a nuestra página de servicios.</p>
+        <p>
+            Bienvenido a la página de servicios de Los Dos de Tamaulipas.
+        </p>
+
+        <a href="index.php" class="btn btn-dark">
+            Volver a Principal
+        </a>
 
     </div>
 
     <!-- Footer -->
-    <footer class="container-fluid bg-dark text-white text-center p-3 mt-5">
+    <footer class="container-fluid bg-dark text-white text-center p-3">
 
-        <strong>MiEmpresa@2026</strong>
+        <strong>Los Dos de Tamaulipas © 2026</strong>
 
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS propio -->
+    <script src="js/app.js"></script>
 
 </body>
 

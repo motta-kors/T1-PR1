@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Pagina Productos</title>
+    <title>Productos - Los Dos de Tamaulipas</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- CSS propio -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -23,7 +23,9 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">
+                Los Dos de Tamaulipas
+            </a>
 
             <button class="navbar-toggler"
                     type="button"
@@ -95,33 +97,26 @@
         </div>
     </nav>
 
-    <!-- Container -->
-    <div class="container-fluid bg-warning p-4">
+    <!-- Contenido -->
+    <div class="container-fluid p-4"
+         style="background-color: orange; min-height: 500px;">
 
-        <h1>Pagina Productos</h1>
+        <h1>Productos</h1>
 
-        <p>Hola Productos</p>
+        <p>Bienvenido a la sección de productos de Los Dos de Tamaulipas.</p>
 
-        <a href="index.php">Volver a Principal</a>
+        <a href="index.php" class="btn btn-dark">
+            Volver a Principal
+        </a>
 
     </div>
 
     <!-- Footer -->
-    <div class="container-fluid bg-dark p-3">
+    <footer class="container-fluid bg-dark text-white text-center p-3">
 
-        <div class="row">
+        <strong>Los Dos de Tamaulipas © 2026</strong>
 
-            <div class="col-4"></div>
-
-            <div class="col-4 text-center" style="color:white;">
-                <strong>MiEmpresa@2026</strong>
-            </div>
-
-            <div class="col-4"></div>
-
-        </div>
-
-    </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
