@@ -2,25 +2,31 @@
 <html lang="es">
 
 <head>
-    <title>Minecraft Web</title>
+    <title>Los Dos de Tamaulipas</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">
+                Los Dos de Tamaulipas
+            </a>
 
             <button class="navbar-toggler"
                     type="button"
@@ -28,6 +34,7 @@
                     data-bs-target="#collapsibleNavbar">
 
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -40,7 +47,9 @@
                            href="#"
                            role="button"
                            data-bs-toggle="dropdown">
+
                             Empresa
+
                         </a>
 
                         <ul class="dropdown-menu">
@@ -90,16 +99,28 @@
             </div>
 
         </div>
+
     </nav>
 
-    <!-- Container -->
-    <div class="container-fluid bg-warning p-4">
 
-        <h1>Pagina Principal</h1>
+    <!-- Contenido -->
+    <div class="container-fluid p-4"
+         style="background-color: orange; min-height: 500px;">
 
-        <a href="index.php">Volver</a>
+        <h1>Los Dos de Tamaulipas</h1>
+
+        <p>Bienvenido a la pagina de Los Dos de Tamaulipas</p>
+
+        <a href="empresa.php">Ir a Empresa</a><br>
+
+        <a href="servicios.php">Ir a Servicios</a><br>
+
+        <a href="productos.php">Ir a Productos</a><br>
+
+        <a href="contactos.php">Ir a Contacto</a><br>
 
     </div>
+
 
     <!-- Footer -->
     <div class="container-fluid bg-dark p-3">
@@ -108,8 +129,10 @@
 
             <div class="col-4"></div>
 
-            <div class="col-4 text-center" style="color:white;">
-                <strong>MiEmpresa@2026</strong>
+            <div class="col-4 text-center text-white">
+
+                <strong>Los Dos de Tamaulipas © 2026</strong>
+
             </div>
 
             <div class="col-4"></div>
@@ -118,8 +141,11 @@
 
     </div>
 
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- JS propio -->
     <script src="js/app.js"></script>
 
 </body>

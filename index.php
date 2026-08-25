@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Minecraft Web</title>
+    <title>Los Dos de Tamaulipas</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +21,11 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">
+                Los Dos de Tamaulipas
+            </a>
 
             <button class="navbar-toggler"
                     type="button"
@@ -32,12 +33,17 @@
                     data-bs-target="#collapsibleNavbar">
 
                 <span class="navbar-toggler-icon"></span>
-
             </button>
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
                 <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.php">
+                            Inicio
+                        </a>
+                    </li>
 
                     <li class="nav-item dropdown">
 
@@ -45,9 +51,7 @@
                            href="#"
                            role="button"
                            data-bs-toggle="dropdown">
-
                             Empresa
-
                         </a>
 
                         <ul class="dropdown-menu">
@@ -97,66 +101,62 @@
             </div>
 
             <button type="button"
-                    class="btn btn-outline-info"
+                    class="btn btn-outline-warning"
                     data-bs-toggle="modal"
                     data-bs-target="#myModal">
 
                 Acceder
-
             </button>
 
         </div>
-
     </nav>
 
 
     <!-- Contenido principal -->
     <div class="container-fluid p-4"
-         style="background-color: turquoise; min-height: 500px;">
+         style="background-color: orange; min-height: 500px;">
 
-        <h1>Pagina Principal</h1>
+        <h1>Los Dos de Tamaulipas</h1>
 
-        <p>Bienvenido a Minecraft Web</p>
+        <p>Bienvenido a la pagina de Los Dos de Tamaulipas</p>
 
-        <a href="empresa.php">Ir a Empresa</a><br>
+        <hr>
 
-        <a href="servicios.php">Ir a Servicios</a><br>
+        <a href="empresa.php" class="btn btn-dark m-1">
+            Empresa
+        </a>
 
-        <a href="productos.php">Ir a Productos</a><br>
+        <a href="servicios.php" class="btn btn-dark m-1">
+            Servicios
+        </a>
 
-        <a href="contactos.php">Ir a Contacto</a><br>
+        <a href="productos.php" class="btn btn-dark m-1">
+            Productos
+        </a>
+
+        <a href="contactos.php" class="btn btn-dark m-1">
+            Contacto
+        </a>
 
     </div>
 
 
     <!-- Footer -->
-    <div class="container-fluid bg-dark p-3">
+    <footer class="container-fluid bg-dark text-white text-center p-3">
 
-        <div class="row">
+        <strong>Los Dos de Tamaulipas © 2026</strong>
 
-            <div class="col-4"></div>
-
-            <div class="col-4 text-center text-white">
-
-                <strong>MiEmpresa@2026</strong>
-
-            </div>
-
-            <div class="col-4"></div>
-
-        </div>
-
-    </div>
+    </footer>
 
 
-    <!-- Modal -->
+    <!-- Modal de acceso -->
     <div class="modal fade" id="myModal">
 
         <div class="modal-dialog">
 
             <div class="modal-content">
 
-                <!-- Modal Header -->
+                <!-- Header -->
                 <div class="modal-header">
 
                     <h4 class="modal-title">
@@ -171,10 +171,10 @@
                 </div>
 
 
-                <!-- Modal body -->
+                <!-- Body -->
                 <div class="modal-body">
 
-                    <form action="empresa.php">
+                    <form action="empresa.php" method="post">
 
                         <div class="mb-3">
 
@@ -185,8 +185,9 @@
                             <input type="email"
                                    class="form-control"
                                    id="email"
+                                   name="email"
                                    placeholder="Ingrese su email"
-                                   name="email">
+                                   required>
 
                         </div>
 
@@ -199,8 +200,9 @@
                             <input type="password"
                                    class="form-control"
                                    id="pwd"
+                                   name="pswd"
                                    placeholder="Ingrese su password"
-                                   name="pswd">
+                                   required>
 
                         </div>
 
@@ -226,7 +228,7 @@
                 </div>
 
 
-                <!-- Modal footer -->
+                <!-- Footer Modal -->
                 <div class="modal-footer">
 
                     <button type="button"

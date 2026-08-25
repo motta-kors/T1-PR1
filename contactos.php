@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Pagina Contacto</title>
+    <title>Contacto - Los Dos de Tamaulipas</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,16 +14,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- CSS propio -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">
+                Los Dos de Tamaulipas
+            </a>
 
             <button class="navbar-toggler"
                     type="button"
@@ -67,6 +70,7 @@
                             </li>
 
                         </ul>
+
                     </li>
 
                     <li class="nav-item">
@@ -92,19 +96,26 @@
             </div>
 
             <button type="button"
-                    class="btn btn-outline-primary"
+                    class="btn btn-outline-warning"
                     data-bs-toggle="modal"
                     data-bs-target="#myModal">
+
                 Acceder
+
             </button>
 
         </div>
+
     </nav>
 
-    <!-- Container -->
-    <div class="container-fluid bg-warning p-4">
+
+    <!-- Contenido -->
+    <div class="container-fluid p-4"
+         style="background-color: orange; min-height: 500px;">
 
         <h1>Contacto</h1>
+
+        <p>Contacta a Los Dos de Tamaulipas</p>
 
         <form action="empresa.php" method="post">
 
@@ -135,7 +146,7 @@
 
             </div>
 
-            <button type="submit" class="btn btn-outline-primary">
+            <button type="submit" class="btn btn-dark">
                 Enviar
             </button>
 
@@ -147,6 +158,7 @@
 
     </div>
 
+
     <!-- Footer -->
     <div class="container-fluid bg-dark p-3">
 
@@ -155,7 +167,9 @@
             <div class="col-4"></div>
 
             <div class="col-4 text-center text-white">
-                <strong>MiEmpresa@2026</strong>
+
+                <strong>Los Dos de Tamaulipas © 2026</strong>
+
             </div>
 
             <div class="col-4"></div>
@@ -163,6 +177,7 @@
         </div>
 
     </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="myModal">
@@ -184,6 +199,7 @@
                     </button>
 
                 </div>
+
 
                 <!-- Modal body -->
                 <div class="modal-body">
@@ -239,13 +255,16 @@
 
                 </div>
 
+
                 <!-- Modal footer -->
                 <div class="modal-footer">
 
                     <button type="button"
                             class="btn btn-danger"
                             data-bs-dismiss="modal">
+
                         Cerrar
+
                     </button>
 
                 </div>
@@ -255,6 +274,7 @@
         </div>
 
     </div>
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
