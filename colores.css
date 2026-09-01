@@ -1,0 +1,72 @@
+:root {
+    /* Crema / Vainilla */
+    --crema-base: #F5EFE6;
+    --crema-claro: #FAF6F0;
+
+    /* Verde Matcha / Pistacho */
+    --verde-matcha: #C8DDBB;
+    --verde-pistacho: #D4E7C5;
+
+    /* Café Caramelo / Dulce de Leche */
+    --caramelo: #D09B63;
+    --dulce-leche: #C58940;
+
+    /* Verde Salvia / Eucalipto */
+    --verde-salvia: #7A9A7B;
+    --verde-eucalipto: #8EA58A;
+
+    /* Negro */
+    --negro-carbon: #1E2320;
+    --negro-oscuro: #222222;
+
+    /* Blanco */
+    --blanco: #FFFFFF;
+}
+
+/* Fondo general */
+body {
+    background-color: var(--crema-base);
+    color: var(--negro-carbon);
+}
+
+/* Banner principal */
+.hero {
+    background-color: var(--verde-matcha);
+}
+
+/* Tarjetas secundarias */
+.card-secondary {
+    background-color: var(--crema-claro);
+}
+
+/* Tarjeta de sabor destacada */
+.card-featured {
+    background-color: var(--caramelo);
+}
+
+/* Tarjeta eco-friendly */
+.card-eco {
+    background-color: var(--verde-pistacho);
+}
+
+/* Envases de helado */
+.ice-cream-container {
+    background-color: var(--verde-salvia);
+}
+
+/* Tarjetas de productos */
+.product-card {
+    background-color: var(--blanco);
+}
+
+/* Botones principales */
+.btn-primary {
+    background-color: var(--negro-carbon);
+    color: var(--blanco);
+}
+
+/* Contador del carrito */
+.cart-counter {
+    background-color: var(--negro-oscuro);
+    color: var(--blanco);
+}
