@@ -2,133 +2,80 @@
 <html lang="es">
 
 <head>
-    <title>Pagina Productos</title>
-
+    <title>Productos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- CSS propio -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="Estilo.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">Minecraft Web</a>
 
-            <a class="navbar-brand" href="index.php">Logo</a>
-
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavbar">
-
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
                 <ul class="navbar-nav">
-
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           role="button"
-                           data-bs-toggle="dropdown">
-                            Empresa
-                        </a>
-
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a class="dropdown-item" href="empresa.php">
-                                    Quienes Somos
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Nuestro Equipo
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Mision
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.php">
-                            Servicios
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="productos.php">
-                            Productos
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactos.php">
-                            Contacto
-                        </a>
-                    </li>
-
+                    <li class="nav-item"><a class="nav-link" href="index.php">Principal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="empresa.php">Empresa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicios.php">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="productos.php">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactos.php">Contacto</a></li>
                 </ul>
-
             </div>
-
         </div>
     </nav>
 
-    <!-- Container -->
-    <div class="container-fluid bg-warning p-4">
+    <main class="container py-4">
+        <div class="mc-container">
+            <h1>Productos</h1>
+            <p>Los productos se cargan desde la API desarrollada con FastAPI.</p>
 
-        <h1>Pagina Productos</h1>
-
-        <p>Hola Productos</p>
-
-        <a href="index.php">Volver a Principal</a>
-
-    </div>
-
-    <!-- Footer -->
-    <div class="container-fluid bg-dark p-3">
-
-        <div class="row">
-
-            <div class="col-4"></div>
-
-            <div class="col-4 text-center" style="color:white;">
-                <strong>MiEmpresa@2026</strong>
+            <div class="mb-4">
+                <label for="cmbProducto" class="form-label">Productos disponibles</label>
+                <select id="cmbProducto" class="form-select">
+                    <option>Cargando productos...</option>
+                </select>
             </div>
 
-            <div class="col-4"></div>
+            <h2 class="h4">Agregar producto</h2>
 
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="txtId" class="form-label">ID</label>
+                    <input type="number" id="txtId" class="form-control" min="1">
+                </div>
+
+                <div class="col-md-5">
+                    <label for="txtNombre" class="form-label">Nombre</label>
+                    <input type="text" id="txtNombre" class="form-control">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="txtPrecio" class="form-label">Precio</label>
+                    <input type="number" id="txtPrecio" class="form-control" min="1">
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-minecraft mt-3" onclick="agregarProducto()">
+                Agregar producto
+            </button>
         </div>
+    </main>
 
-    </div>
+    <footer class="container-fluid text-white text-center p-3">
+        <strong>MiEmpresa@2026</strong>
+    </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JS propio -->
-    <script src="js/app.js"></script>
+    <script src="Pagina.js"></script>
 
 </body>
-
 </html>
