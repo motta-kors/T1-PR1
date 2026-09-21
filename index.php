@@ -1,257 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <title>Minecraft Web</title>
-
+    <title>Gelato Artesanal</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- CSS propio -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Estilo.css">
 </head>
-
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
-        <div class="container-fluid">
-
-            <a class="navbar-brand" href="index.php">Logo</a>
-
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavbar">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
-                <ul class="navbar-nav">
-
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           role="button"
-                           data-bs-toggle="dropdown">
-
-                            Empresa
-
-                        </a>
-
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a class="dropdown-item" href="empresa.php">
-                                    Quienes Somos
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Nuestro Equipo
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Mision
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.php">
-                            Servicios
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="productos.php">
-                            Productos
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactos.php">
-                            Contacto
-                        </a>
-                    </li>
-
-                </ul>
-
+    <div class="site-shell">
+        <nav class="navbar navbar-expand-lg px-4 py-3">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold lh-sm" href="index.php">Gelato<br>Artesanal</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav mx-auto gap-lg-3">
+                        <li class="nav-item"><a class="nav-link active" href="index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="productos.php">Sabores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#formatos">Formatos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="servicios.php">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contactos.php">Contacto</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-search"></i>
+                        <i class="bi bi-cart3"></i>
+                        <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#myModal">Pedir Online</button>
+                    </div>
+                </div>
             </div>
+        </nav>
 
-            <button type="button"
-                    class="btn btn-outline-info"
-                    data-bs-toggle="modal"
-                    data-bs-target="#myModal">
+        <section class="hero">
+            <div>
+                <div class="eyebrow"><span>⭐ 4.9/5</span><small>(1.200 reseñas)</small></div>
+                <h1>El auténtico sabor artesanal en cada cucharada</h1>
+                <p>Cremosos, naturales y hechos con dedicación. Una propuesta fresca inspirada en sabores clásicos y combinaciones únicas.</p>
+                <div class="hero-stats">
+                    <div><strong>100%</strong><span>Ingredientes naturales</span></div>
+                    <div><strong>0%</strong><span>Colorantes artificiales</span></div>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="productos.php" class="btn btn-primary px-4">Pide Ahora</a>
+                    <a href="#formatos" class="btn btn-outline-dark px-4">Explora Sabores</a>
+                </div>
+            </div>
+            <div class="hero-art">
+                <div class="gelato-cup">
+                    <div class="cup-label">Gelato<br>Artesanal</div>
+                </div>
+            </div>
+        </section>
 
-                Acceder
+        <section class="section-block" id="formatos">
+            <h2 class="section-title">Descubre nuestros formatos</h2>
+            <div class="format-grid">
+                <article class="format-card">
+                    <div class="format-visual">🍦</div>
+                    <h3>Cono Doble Barquillo</h3>
+                    <p class="text-muted mb-3">Elige tus 2 sabores favoritos.</p>
+                    <span class="price-pill">Agregar · $4.500</span>
+                </article>
+                <article class="format-card">
+                    <div class="format-visual">🍨</div>
+                    <h3>Pote Familiar 1000ml</h3>
+                    <p class="text-muted mb-3">Hasta 4 sabores.</p>
+                    <span class="price-pill">Agregar · $9.900</span>
+                </article>
+                <article class="format-card">
+                    <div class="format-visual">🥣</div>
+                    <h3>Pote Mediano 500ml</h3>
+                    <p class="text-muted mb-3">Hasta 2 sabores.</p>
+                    <span class="price-pill">Agregar · $5.900</span>
+                </article>
+            </div>
+        </section>
 
-            </button>
+        <section class="special">
+            <div class="special-visual">🍧</div>
+            <div>
+                <small class="text-uppercase fw-bold">Pote especial</small>
+                <h2 class="fw-bold">Pistacho y frutos del bosque</h2>
+                <p>Artesanal · Fruta fresca · Sin gluten</p>
+                <h3 class="fw-bold">$6.500</h3>
+                <a href="productos.php" class="btn btn-primary mt-2">Ver sabores</a>
+            </div>
+        </section>
 
-        </div>
-
-    </nav>
-
-
-    <!-- Contenido principal -->
-    <div class="container-fluid p-4"
-         style="background-color: turquoise; min-height: 500px;">
-
-        <h1>Pagina Principal</h1>
-
-        <p>Bienvenido a Minecraft Web</p>
-
-        <a href="empresa.php">Ir a Empresa</a><br>
-
-        <a href="servicios.php">Ir a Servicios</a><br>
-
-        <a href="productos.php">Ir a Productos</a><br>
-
-        <a href="contactos.php">Ir a Contacto</a><br>
-
+        <section class="section-block pt-2">
+            <h2 class="section-title">Por qué te encantará nuestro helado</h2>
+            <div class="benefits">
+                <div class="benefit"><div class="fs-2">🍓</div><strong>Fruta 100% real</strong></div>
+                <div class="benefit"><div class="fs-2">🔥</div><strong>Cremado tradicional</strong></div>
+                <div class="benefit highlight"><div class="fs-2">♻️</div><strong>Envases eco-friendly</strong></div>
+                <div class="benefit"><div class="fs-2">🌱</div><strong>Línea vegana</strong></div>
+            </div>
+            <div class="cta">
+                <h3>¿Se te antoja un helado hoy?</h3>
+                <p>Pide online y recíbelo listo.</p>
+                <a href="contactos.php" class="btn btn-primary px-4">Hacer Pedido</a>
+            </div>
+        </section>
     </div>
 
+    <footer class="container-fluid text-center p-4">
+        <strong>Gelato Artesanal · 2026</strong>
+    </footer>
 
-    <!-- Footer -->
-    <div class="container-fluid bg-dark p-3">
-
-        <div class="row">
-
-            <div class="col-4"></div>
-
-            <div class="col-4 text-center text-white">
-
-                <strong>MiEmpresa@2026</strong>
-
-            </div>
-
-            <div class="col-4"></div>
-
-        </div>
-
-    </div>
-
-
-    <!-- Modal -->
     <div class="modal fade" id="myModal">
-
         <div class="modal-dialog">
-
             <div class="modal-content">
-
-                <!-- Modal Header -->
                 <div class="modal-header">
-
-                    <h4 class="modal-title">
-                        Autenticacion
-                    </h4>
-
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal">
-                    </button>
-
+                    <h4 class="modal-title">Pedido Online</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-
-
-                <!-- Modal body -->
                 <div class="modal-body">
-
-                    <form action="empresa.php">
-
+                    <form action="productos.php">
                         <div class="mb-3">
-
-                            <label for="email" class="form-label">
-                                Email:
-                            </label>
-
-                            <input type="email"
-                                   class="form-control"
-                                   id="email"
-                                   placeholder="Ingrese su email"
-                                   name="email">
-
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Ingrese su email" name="email">
                         </div>
-
-                        <div class="mb-3">
-
-                            <label for="pwd" class="form-label">
-                                Password:
-                            </label>
-
-                            <input type="password"
-                                   class="form-control"
-                                   id="pwd"
-                                   placeholder="Ingrese su password"
-                                   name="pswd">
-
-                        </div>
-
-                        <div class="form-check mb-3">
-
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   id="remember"
-                                   name="remember">
-
-                            <label class="form-check-label" for="remember">
-                                Recordarme
-                            </label>
-
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                            Login
-                        </button>
-
+                        <button type="submit" class="btn btn-primary">Continuar pedido</button>
                     </form>
-
                 </div>
-
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-
-                    <button type="button"
-                            class="btn btn-danger"
-                            data-bs-dismiss="modal">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
-
             </div>
-
         </div>
-
     </div>
 
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JS propio -->
-    <script src="js/app.js"></script>
-
 </body>
-
 </html>
