@@ -36,16 +36,19 @@
     <main class="container py-4">
         <div class="mc-container">
             <h1>Productos</h1>
-            <p>Los productos se cargan desde la API desarrollada con FastAPI.</p>
+            <p>
+                CRUD conectado a FastAPI y MongoDB. Selecciona un producto para cargar sus datos,
+                o utiliza el formulario para agregar uno nuevo.
+            </p>
 
             <div class="mb-4">
                 <label for="cmbProducto" class="form-label">Productos disponibles</label>
                 <select id="cmbProducto" class="form-select">
-                    <option>Cargando productos...</option>
+                    <option value="">Cargando productos...</option>
                 </select>
             </div>
 
-            <h2 class="h4">Agregar producto</h2>
+            <h2 class="h4">Datos del producto</h2>
 
             <div class="row g-3">
                 <div class="col-md-3">
@@ -64,9 +67,30 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-minecraft mt-3" onclick="agregarProducto()">
-                Agregar producto
-            </button>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                <button type="button" class="btn btn-minecraft" onclick="agregarProducto()">
+                    <i class="bi bi-plus-circle"></i> Agregar
+                </button>
+
+                <button type="button" class="btn btn-warning" onclick="actualizarProducto()">
+                    <i class="bi bi-pencil-square"></i> Actualizar
+                </button>
+
+                <button type="button" class="btn btn-danger" onclick="eliminarProducto()">
+                    <i class="bi bi-trash"></i> Eliminar
+                </button>
+
+                <button type="button" class="btn btn-outline-light" onclick="limpiarFormulario()">
+                    Limpiar
+                </button>
+            </div>
+
+            <hr>
+
+            <p class="mb-0">
+                Documentación de la API:
+                <code>http://127.0.0.1:8000/docs</code>
+            </p>
         </div>
     </main>
 
