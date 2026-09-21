@@ -1,127 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <title>Gelato Artesanal</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link rel="stylesheet" href="Estilo.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nosotros | Gelato Artesanal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Estilo.css">
 </head>
-
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-
-            <a class="navbar-brand" href="index.php">Gelato Artesanal</a>
-
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavbar">
-
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
-                <ul class="navbar-nav">
-
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           role="button"
-                           data-bs-toggle="dropdown">
-                            Empresa
-                        </a>
-
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <a class="dropdown-item" href="empresa.php">
-                                    Quienes Somos
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Nuestro Equipo
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Mision
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicios.php">
-                            Servicios
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="productos.php">
-                            Productos
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactos.php">
-                            Contacto
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-    </nav>
-
-    <!-- Container -->
-    <div class="container page-panel">
-
-        <h1>Pagina Principal</h1>
-
-        <a href="index.php">Volver</a>
-
+<nav class="navbar navbar-expand-lg px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="index.php">Gelato Artesanal</a>
+    <div class="navbar-nav ms-auto">
+      <a class="nav-link" href="index.php">Inicio</a>
+      <a class="nav-link" href="productos.php">Sabores</a>
+      <a class="nav-link" href="servicios.php">FAQ</a>
+      <a class="nav-link active" href="empresa.php">Nosotros</a>
+      <a class="nav-link" href="contactos.php">Contacto</a>
     </div>
-
-    <!-- Footer -->
-    <div class="container-fluid bg-dark p-3">
-
-        <div class="row">
-
-            <div class="col-4"></div>
-
-            <div class="col-4 text-center" style="color:white;">
-                <strong>Gelato Artesanal · 2026</strong>
-            </div>
-
-            <div class="col-4"></div>
-
-        </div>
-
+  </div>
+</nav>
+<main class="container page-panel">
+  <div class="row g-4 align-items-center">
+    <div class="col-md-7">
+      <span class="eyebrow">Nuestra historia</span>
+      <h1 class="fw-bold">Helado simple, rico y bien hecho</h1>
+      <p class="lead">Gelato Artesanal nace como una propuesta académica de frontend enfocada en una experiencia clara, cálida y fácil de usar.</p>
+      <p>El diseño mantiene la paleta crema, verde salvia y terracota definida para el proyecto, con navegación responsiva y componentes Bootstrap.</p>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="js/app.js"></script>
-
+    <div class="col-md-5"><div class="special-visual">🍦</div></div>
+  </div>
+</main>
+<footer class="container-fluid text-center p-4"><strong>Gelato Artesanal · 2026</strong></footer>
 </body>
-
 </html>
