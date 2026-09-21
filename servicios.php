@@ -9,7 +9,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="Estilo.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">Gelato Artesanal</a>
 
             <button class="navbar-toggler"
                     type="button"
@@ -70,7 +70,7 @@
     </nav>
 
     <!-- Contenido -->
-    <div class="container mt-4">
+    <div class="container page-panel">
 
         <h1>Servicios</h1>
 
@@ -81,7 +81,7 @@
     <!-- Footer -->
     <footer class="container-fluid bg-dark text-white text-center p-3 mt-5">
 
-        <strong>MiEmpresa@2026</strong>
+        <strong>Gelato Artesanal · 2026</strong>
 
     </footer>
 
