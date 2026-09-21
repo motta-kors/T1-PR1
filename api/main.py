@@ -6,8 +6,8 @@ from pymongo.errors import DuplicateKeyError
 
 app = FastAPI(
     title="T1-PR1 API",
-    description="API CRUD de productos con FastAPI y MongoDB",
-    version="2.0.0",
+    description="API CRUD de productos de Gelato Artesanal con FastAPI y MongoDB",
+    version="2.1.0",
 )
 
 app.add_middleware(
@@ -31,6 +31,18 @@ class Producto(BaseModel):
     precio: int = Field(gt=0)
 
 
+PRODUCTOS_INICIALES = [
+    {"id": 1, "nombre": "Cono Doble Barquillo", "precio": 4500},
+    {"id": 2, "nombre": "Pote Familiar 1000ml", "precio": 9900},
+    {"id": 3, "nombre": "Pote Mediano 500ml", "precio": 5900},
+    {
+        "id": 4,
+        "nombre": "Pote Especial Pistacho y Frutos del Bosque",
+        "precio": 6500,
+    },
+]
+
+
 def limpiar_producto(documento):
     if documento is None:
         return None
@@ -40,11 +52,20 @@ def limpiar_producto(documento):
 
 
 def sembrar_productos():
-    if coleccion_productos.count_documents({}) == 0:
-        coleccion_productos.insert_many([
-            {"id": 1, "nombre": "Teclado", "precio": 4590},
-            {"id": 2, "nombre": "Mouse", "precio": 6000},
-        ])
+    productos_anteriores = [
+        {"id": 1, "nombre": "Teclado", "precio": 4590},
+        {"id": 2, "nombre": "Mouse", "precio": 6000},
+    ]
+
+    for producto in productos_anteriores:
+        coleccion_productos.delete_one(producto)
+
+    for producto in PRODUCTOS_INICIALES:
+        coleccion_productos.update_one(
+            {"id": producto["id"]},
+            {"$set": producto},
+            upsert=True,
+        )
 
 
 sembrar_productos()
@@ -53,7 +74,7 @@ sembrar_productos()
 @app.get("/")
 def inicio():
     return {
-        "mensaje": "API funcionando correctamente",
+        "mensaje": "API de Gelato Artesanal funcionando correctamente",
         "base_datos": "MongoDB",
     }
 
