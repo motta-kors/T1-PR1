@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Minecraft Web</title>
+    <title>Gelato Artesanal</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="Estilo.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">Gelato Artesanal</a>
 
             <button class="navbar-toggler"
                     type="button"
@@ -93,7 +93,7 @@
     </nav>
 
     <!-- Container -->
-    <div class="container-fluid bg-warning p-4">
+    <div class="container page-panel">
 
         <h1>Pagina Principal</h1>
 
@@ -109,7 +109,7 @@
             <div class="col-4"></div>
 
             <div class="col-4 text-center" style="color:white;">
-                <strong>MiEmpresa@2026</strong>
+                <strong>Gelato Artesanal · 2026</strong>
             </div>
 
             <div class="col-4"></div>
