@@ -123,6 +123,7 @@
         <a href="servicios.php">Ir a Servicios</a><br>
 
         <a href="productos.php">Ir a Productos</a><br>
+        <a href="tienda-segura.php">Tienda y pedidos seguros</a><br>
 
         <a href="contactos.php">Ir a Contacto</a><br>
 
