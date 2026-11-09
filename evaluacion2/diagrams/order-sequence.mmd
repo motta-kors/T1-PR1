@@ -1,0 +1,23 @@
+sequenceDiagram
+participant C as Cliente
+participant G as API Gateway
+participant A as Auth
+participant O as Orders
+participant I as Inventory
+C->>G: POST /api/v1/orders (Bearer)
+G->>A: Introspect token
+A-->>G: user_id, role
+G->>O: Crear pedido (identidad validada)
+O->>I: GET /products/id
+I-->>O: Precio/stock
+O->>I: POST /reserve
+alt Stock suficiente
+I-->>O: reserved=true
+O->>O: Guardar pedido pendiente
+O-->>G: 201 pedido/total
+G-->>C: 201 pedido/total
+else Sin stock
+I-->>O: 409
+O-->>G: 409
+G-->>C: 409
+end
