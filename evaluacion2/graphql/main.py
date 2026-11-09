@@ -30,15 +30,19 @@ async def resolve_orders(_root,info):
     return [{**o,"product":lookup.get(o["product_id"])} for o in orders[:50]]
 schema.get_type("Query").fields["myOrders"].resolve=resolve_orders
 
-def check(node,depth=0):
+def check(node,depth=0,counter=None):
+    # Presupuesto global de complejidad: no se reinicia en cada subárbol.
+    if counter is None: counter=[0]
     if depth>5: raise HTTPException(400,"Profundidad GraphQL excedida")
-    n=1
+    counter[0]+=1
+    if counter[0]>40: raise HTTPException(400,"Consulta demasiado compleja")
     for sel in getattr(getattr(node,"selection_set",None),"selections",[]) or []:
-        if getattr(getattr(sel,"name",None),"value","").startswith("__"):
+        if not hasattr(sel,"name"):
+            raise HTTPException(400,"Fragments no permitidos")
+        if sel.name.value.startswith("__"):
             raise HTTPException(400,"Introspección deshabilitada")
-        n+=check(sel,depth+1)
-    if n>40: raise HTTPException(400,"Consulta demasiado compleja")
-    return n
+        check(sel,depth+1,counter)
+    return counter[0]
 
 @app.get("/health")
 def health(): return {"status":"ok","service":"graphql"}
