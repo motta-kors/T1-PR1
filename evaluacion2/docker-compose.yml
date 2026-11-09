@@ -48,7 +48,7 @@ services:
     <<: *private
     environment:
       INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
-    command: ["uvicorn","graphql.main:app","--host","0.0.0.0","--port","8000"]
+    command: ["uvicorn","main:app","--app-dir","/app/graphql","--host","0.0.0.0","--port","8000"]
 
   gateway:
     build: .
