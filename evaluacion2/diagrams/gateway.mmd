@@ -1,0 +1,41 @@
+classDiagram
+direction LR
+class ApiGateway {
+ +route(request)
+ +who(request)
+}
+class RouteDefinition {
+ +string method
+ +string externalPath
+ +string target
+ +string policy
+}
+class AuthPolicy {
+ +introspect(token)
+}
+class AuthzPolicy {
+ +check(role,owner)
+}
+class SecretProvider {
+ +getInternalKey()
+}
+class GraphQLGateway {
+ +execute(query)
+}
+class Schema {
+ +Query myOrders
+}
+class Resolver {
+ +resolveOrders()
+}
+class ServiceTarget {
+ +internalUrl
+}
+ApiGateway "1" --> "1..*" RouteDefinition : define
+RouteDefinition "0..*" --> "1" ServiceTarget : envía a
+ApiGateway --> AuthPolicy
+ApiGateway --> AuthzPolicy
+ApiGateway --> SecretProvider
+ApiGateway --> GraphQLGateway
+GraphQLGateway "1" --> "1" Schema
+Schema "1" --> "1..*" Resolver
