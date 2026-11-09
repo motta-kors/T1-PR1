@@ -1,7 +1,7 @@
 name: Evaluacion 2 - Backend
 on:
   push:
-    branches: [evaluacion-2]
+    branches: [semana-11]
   pull_request:
     branches: [main]
   workflow_dispatch:
