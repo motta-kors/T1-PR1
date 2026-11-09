@@ -19,18 +19,18 @@ jobs:
       - name: Build and start services
         working-directory: evaluacion2
         run: docker compose up --build -d --wait
+      - name: Generate ephemeral administrator credentials
+        run: |
+          pw="$(openssl rand -hex 24)"
+          echo "::add-mask::$pw"
+          echo "ADMIN_PASSWORD=$pw" >> "$GITHUB_ENV"
+          echo "ADMIN_EMAIL=admin@example.test" >> "$GITHUB_ENV"
       - name: Provision testing administrator
         working-directory: evaluacion2
-        env:
-          ADMIN_EMAIL: admin@example.test
-          ADMIN_PASSWORD: CI-Demo-Only-Password-2026!
         run: docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD auth python -m services.provision_admin
       - name: Install testing dependencies
         run: python -m pip install -r evaluacion2/tests/requirements.txt
       - name: Execute functional and security tests
-        env:
-          ADMIN_EMAIL: admin@example.test
-          ADMIN_PASSWORD: CI-Demo-Only-Password-2026!
         run: python -m pytest evaluacion2/tests -v
       - name: Measure REST load
         run: python evaluacion2/tests/load_test.py --requests 100 --concurrency 5
