@@ -1,8 +1,6 @@
 x-private: &private
   build: .
   restart: unless-stopped
-  volumes:
-    - eval2_data:/data
   networks:
     - private
   expose:
@@ -11,6 +9,8 @@ x-private: &private
 services:
   auth:
     <<: *private
+    volumes:
+      - auth_data:/data
     environment:
       SERVICE: auth
       INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
@@ -18,6 +18,8 @@ services:
 
   clients:
     <<: *private
+    volumes:
+      - clients_data:/data
     environment:
       SERVICE: clients
       INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
@@ -25,6 +27,8 @@ services:
 
   inventory:
     <<: *private
+    volumes:
+      - inventory_data:/data
     environment:
       SERVICE: inventory
       INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
@@ -32,6 +36,8 @@ services:
 
   orders:
     <<: *private
+    volumes:
+      - orders_data:/data
     environment:
       SERVICE: orders
       INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
@@ -39,6 +45,8 @@ services:
 
   payments:
     <<: *private
+    volumes:
+      - payments_data:/data
     environment:
       SERVICE: payments
       INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
@@ -73,7 +81,11 @@ services:
     networks: [public]
 
 volumes:
-  eval2_data:
+  auth_data:
+  clients_data:
+  inventory_data:
+  orders_data:
+  payments_data:
 
 networks:
   private:
