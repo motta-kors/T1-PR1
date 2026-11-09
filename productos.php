@@ -102,6 +102,9 @@
 
         <p>Hola Productos</p>
 
+        <!-- Extensión Evaluación 2: se conserva el contenido original -->
+        <p><a class="btn btn-success" href="tienda-segura.php">Ver catálogo y pedidos en línea</a></p>
+
         <a href="index.php">Volver a Principal</a>
 
     </div>
