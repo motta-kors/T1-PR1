@@ -1,0 +1,18 @@
+flowchart LR
+  Web[PHP original y tienda opcional] --> Gateway[API Gateway externo]
+  Gateway --> Auth[Auth Service]
+  Gateway --> Inventory[Inventory privado]
+  Gateway --> Orders[Orders privado]
+  Gateway --> Clients[Clients privado]
+  Gateway --> Payments[Payments sandbox privado]
+  Gateway --> GraphQL[GraphQL Gateway privado]
+  Auth --> Clients
+  Orders --> Inventory
+  Payments --> Orders
+  GraphQL --> Inventory
+  GraphQL --> Orders
+  Auth --> DBA[(SQLite auth)]
+  Inventory --> DBI[(SQLite inventory)]
+  Orders --> DBO[(SQLite orders)]
+  Clients --> DBC[(SQLite clients)]
+  Payments --> DBP[(SQLite payments)]
