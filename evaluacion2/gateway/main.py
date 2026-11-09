@@ -1,4 +1,5 @@
 import os, secrets
+from uuid import UUID
 import httpx
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -55,16 +56,19 @@ async def gateway(remaining:str,request:Request):
     match=ROUTES.get((request.method,path))
     # Se admiten IDs solo con caracteres de UUID y subrutas concretas.
     pieces=remaining.split("/")
-    if not match and len(pieces)==2 and pieces[0]=="products" and len(pieces[1])==36:
+    def valid_id(raw):
+        try: return str(UUID(raw))==raw.lower()
+        except (ValueError, AttributeError): return False
+    if not match and len(pieces)==2 and pieces[0]=="products" and valid_id(pieces[1]):
         if request.method=="GET": match=("inventory","/products/"+pieces[1],"public")
         if request.method in ("PUT","DELETE"): match=("inventory","/products/"+pieces[1],"admin")
-    if not match and len(pieces)==2 and pieces[0]=="orders" and len(pieces[1])==36 and request.method=="GET":
+    if not match and len(pieces)==2 and pieces[0]=="orders" and valid_id(pieces[1]) and request.method=="GET":
         match=("orders","/orders/"+pieces[1],"client")
-    if not match and len(pieces)==3 and pieces[0]=="orders" and len(pieces[1])==36 and pieces[2]=="cancel" and request.method=="POST":
+    if not match and len(pieces)==3 and pieces[0]=="orders" and valid_id(pieces[1]) and pieces[2]=="cancel" and request.method=="POST":
         match=("orders","/orders/"+pieces[1]+"/cancel","client")
-    if not match and len(pieces)==2 and pieces[0]=="payments" and len(pieces[1])==36 and request.method=="POST":
+    if not match and len(pieces)==2 and pieces[0]=="payments" and valid_id(pieces[1]) and request.method=="POST":
         match=("payments","/payments/"+pieces[1],"client")
-    if not match and len(pieces)==3 and pieces[0]=="sandbox" and pieces[1]=="confirm" and len(pieces[2])==36 and request.method=="POST":
+    if not match and len(pieces)==3 and pieces[0]=="sandbox" and pieces[1]=="confirm" and valid_id(pieces[2]) and request.method=="POST":
         match=("payments","/sandbox/confirm/"+pieces[2],"admin")
     if not match: raise HTTPException(404,"Ruta no permitida")
     service,target,policy=match
