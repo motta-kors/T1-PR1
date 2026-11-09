@@ -1,0 +1,4 @@
+/* Hoja referenciada por páginas PHP existentes */
+body { background-color:#f8f9fa; min-height:100vh; }
+.navbar { border-bottom:3px solid #4d7a32; }
+footer { margin-top:auto; }
