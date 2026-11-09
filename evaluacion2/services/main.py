@@ -231,13 +231,18 @@ if SERVICE=="orders":
         verify(x_internal_key)
         current=get_order(oid,x_internal_key,x_user_id,x_user_role)
         if current["status"]!="pending": raise HTTPException(409,"No se puede anular")
-        # Liberar primero la reserva. Si inventory falla, el pedido sigue pendiente.
-        # La operación release es idempotente, de modo que un reintento es seguro.
-        await request_internal("inventory","POST",f"/release/{oid}")
+        # Transición atómica pending -> cancelling: impide competir con paid.
         with conn() as c:
-            changed=c.execute("UPDATE orders SET status='cancelled' WHERE id=? AND status='pending'",(oid,))
-            if not changed.rowcount:
-                raise HTTPException(409,"Estado modificado por otra solicitud")
+            changed=c.execute("UPDATE orders SET status='cancelling' WHERE id=? AND status='pending'",(oid,))
+            if not changed.rowcount: raise HTTPException(409,"Pedido ya modificado")
+        try:
+            await request_internal("inventory","POST",f"/release/{oid}")
+        except Exception:
+            with conn() as c:
+                c.execute("UPDATE orders SET status='pending' WHERE id=? AND status='cancelling'",(oid,))
+            raise
+        with conn() as c:
+            c.execute("UPDATE orders SET status='cancelled' WHERE id=? AND status='cancelling'",(oid,))
         return {"status":"cancelled"}
 
     @app.post("/orders/{oid}/paid")
