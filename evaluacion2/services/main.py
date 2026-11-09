@@ -125,7 +125,7 @@ if SERVICE=="clients":
     @app.post("/profiles",status_code=201)
     def profile_create(p:dict,x_internal_key:str=Header(default="")):
         verify(x_internal_key)
-        with conn() as c: c.execute("INSERT INTO profiles VALUES(?,?,?)",(p["user_id"],p["email"],p["name"]))
+        with conn() as c: c.execute("INSERT INTO profiles(user_id,email,name) VALUES(?,?,?) ON CONFLICT(user_id) DO UPDATE SET email=excluded.email,name=excluded.name",(p["user_id"],p["email"],p["name"]))
         return {"ok":True}
 
     @app.get("/me")
