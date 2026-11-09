@@ -5,23 +5,25 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: process.env.FRONTEND_ORIGIN || "http://localhost:8081" }));
 app.use(express.json());
 
 const PORT = 3001;
 
 // Por ahora usamos una clave temporal.
 // Más adelante esta clave vendrá desde Vault.
-const JWT_SECRET = "clave-secreta-temporal";
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET || JWT_SECRET.length < 32) {
+    throw new Error("Debe definir JWT_SECRET con al menos 32 caracteres.");
+}
 
 // Usuario de prueba.
 // Más adelante esto también lo sacaremos de Vault/BD.
-const usuario = {
-    id: 1,
-    email: "admin@ejemplo.com",
-    passwordHash: bcrypt.hashSync("123456", 10),
-    rol: "admin"
-};
+const DEMO_EMAIL = process.env.DEMO_ADMIN_EMAIL;
+const DEMO_PASSWORD_HASH = process.env.DEMO_ADMIN_PASSWORD_HASH;
+const usuario = DEMO_EMAIL && DEMO_PASSWORD_HASH
+    ? { id: 1, email: DEMO_EMAIL, passwordHash: DEMO_PASSWORD_HASH, rol: "admin" }
+    : null;
 
 
 // -----------------------------
@@ -38,7 +40,7 @@ app.post("/auth/login", async (req, res) => {
     }
 
     // Comprobar email
-    if (email !== usuario.email) {
+    if (!usuario || email !== usuario.email) {
         return res.status(401).json({
             message: "Credenciales incorrectas"
         });
