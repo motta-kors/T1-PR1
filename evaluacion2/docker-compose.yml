@@ -1,0 +1,81 @@
+x-private: &private
+  build: .
+  restart: unless-stopped
+  volumes:
+    - eval2_data:/data
+  networks:
+    - private
+  expose:
+    - "8000"
+
+services:
+  auth:
+    <<: *private
+    environment:
+      SERVICE: auth
+      INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
+    command: ["uvicorn","services.main:app","--host","0.0.0.0","--port","8000"]
+
+  clients:
+    <<: *private
+    environment:
+      SERVICE: clients
+      INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
+    command: ["uvicorn","services.main:app","--host","0.0.0.0","--port","8000"]
+
+  inventory:
+    <<: *private
+    environment:
+      SERVICE: inventory
+      INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
+    command: ["uvicorn","services.main:app","--host","0.0.0.0","--port","8000"]
+
+  orders:
+    <<: *private
+    environment:
+      SERVICE: orders
+      INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
+    command: ["uvicorn","services.main:app","--host","0.0.0.0","--port","8000"]
+
+  payments:
+    <<: *private
+    environment:
+      SERVICE: payments
+      INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
+    command: ["uvicorn","services.main:app","--host","0.0.0.0","--port","8000"]
+
+  graphql:
+    <<: *private
+    environment:
+      INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
+    command: ["uvicorn","graphql.main:app","--host","0.0.0.0","--port","8000"]
+
+  gateway:
+    build: .
+    restart: unless-stopped
+    environment:
+      INTERNAL_SERVICE_KEY: ${INTERNAL_SERVICE_KEY:?Configure la clave interna en .env}
+      FRONTEND_ORIGIN: http://localhost:8081
+    command: ["uvicorn","gateway.main:app","--host","0.0.0.0","--port","8000"]
+    depends_on: [auth,clients,inventory,orders,payments,graphql]
+    networks: [public,private]
+    ports:
+      - "127.0.0.1:8000:8000"
+
+  web:
+    image: php:8.3-cli
+    working_dir: /site
+    volumes:
+      - ../:/site:ro
+    command: ["php","-S","0.0.0.0:8081","-t","/site"]
+    ports:
+      - "127.0.0.1:8081:8081"
+    networks: [public]
+
+volumes:
+  eval2_data:
+
+networks:
+  private:
+    internal: true
+  public:
