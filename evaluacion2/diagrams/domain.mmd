@@ -1,0 +1,45 @@
+classDiagram
+direction LR
+class Usuario {
+ +UUID id
+ +string email
+ -string passwordHash
+ +string role
+}
+class Perfil {
+ +UUID userId
+ +string email
+ +string name
+}
+class Producto {
+ +UUID id
+ +string name
+ +int price
+ +int stock
+ +bool active
+}
+class Pedido {
+ +UUID id
+ +UUID userId
+ +UUID productId
+ +int quantity
+ +int total
+ +string status
+}
+class Reserva {
+ +UUID orderId
+ +UUID productId
+ +int quantity
+}
+class Pago {
+ +UUID id
+ +UUID orderId
+ +int amount
+ +string status
+}
+Usuario "1" --> "0..1" Perfil : tiene
+Usuario "1" --> "0..*" Pedido : realiza
+Producto "1" --> "0..*" Pedido : referenciado por
+Pedido "1" --> "0..1" Reserva : reserva
+Pedido "1" --> "0..1" Pago : pago
+Producto "1" --> "0..*" Reserva : stock reservado
