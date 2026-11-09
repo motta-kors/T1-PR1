@@ -36,7 +36,7 @@ python -m pip install -r tests/requirements.txt
 python -m pytest tests -v
 docker compose down
 ```
-Los tests se deben ejecutar *con los contenedores levantados*. Ninguna ejecución ni resultado se afirma sin evidencia local. Los volúmenes conservan los datos; `docker compose down -v` los elimina.
+Los tests se deben ejecutar *con los contenedores levantados*. Para los tests de administrador, exportar `ADMIN_EMAIL` y `ADMIN_PASSWORD` iguales a los usados en la provisión. Ninguna ejecución ni resultado se afirma sin evidencia local. Los volúmenes conservan los datos; `docker compose down -v` los elimina.
 
 ## Arquitectura
 ```mermaid
@@ -54,7 +54,7 @@ flowchart LR
   Pay --> Ord
   Auth --> Cli
 ```
-Cada servicio tiene una base SQLite independiente ubicada en volumen compartido (un archivo diferente para cada servicio). La red `private` no publica puertos de microservicios. El gateway propaga identidad verificada y no acepta rutas arbitrarias.
+Cada servicio tiene una base SQLite independiente en su propio volumen Docker. Los datos no se comparten mediante una base única. La red `private` no publica puertos de microservicios. El gateway propaga identidad verificada y no acepta rutas arbitrarias.
 
 ## Módulo 1: servicios y correspondencia con pantallas
 | ID | Pantalla / evento | Ruta y verbo | Acceso | Datos |
@@ -174,3 +174,15 @@ Implementación inicial del backend, frontend opcional, despliegue y pruebas aut
 2. Pruebas GET público, POST login, GET pedidos 401 sin token, POST producto 403 con cliente, consulta GraphQL y evidencia del sandbox.
 3. Diagramas UML en formato editable (se pueden trasladar de Mermaid a draw.io).
 4. Tabla caso/pantalla/servicio/prueba/resultado con resultados reales.
+
+## Material complementario listo para el informe
+- [Contratos, pantallas, requisitos y trazabilidad](docs/contracts-and-traceability.md)
+- [Stakeholders, seguridad, rutas y datos sensibles](docs/security-and-routes.md)
+- [ADR REST, gRPC y analítica](docs/adr-001-rest.md)
+- [Plantilla de resultados reales](docs/evidence-template.md)
+- [Diagramas editables](diagrams/)
+- [Pruebas adicionales de negocio](tests/test_business_flows.py)
+- [Prueba de carga reproducible](tests/load_test.py)
+- [GitHub Actions](../.github/workflows/evaluacion2-backend.yml)
+
+El proyecto está en la rama **evaluacion-2**. Los diagramas son archivos Mermaid editables. El caso exacto entre los 40 debe confirmarse y los resultados deben medirse; esto no reemplaza evidencia de ejecución.
