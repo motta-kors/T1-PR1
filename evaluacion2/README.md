@@ -185,4 +185,4 @@ Implementación inicial del backend, frontend opcional, despliegue y pruebas aut
 - [Prueba de carga reproducible](tests/load_test.py)
 - [GitHub Actions](../.github/workflows/evaluacion2-backend.yml)
 
-El proyecto está en la rama **evaluacion-2**. Los diagramas son archivos Mermaid editables. El caso exacto entre los 40 debe confirmarse y los resultados deben medirse; esto no reemplaza evidencia de ejecución.
+El proyecto está en la rama **semana-11**. Los diagramas son archivos Mermaid editables. El caso exacto entre los 40 debe confirmarse y los resultados deben medirse; esto no reemplaza evidencia de ejecución.
