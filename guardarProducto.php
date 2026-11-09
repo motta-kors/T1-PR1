@@ -1,31 +1,19 @@
 <?php
+require_once __DIR__ . '/api/gateway-proxy.php';
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-
-// Leer los datos JSON enviados desde fetch()
-$datosRecibidos = json_decode(file_get_contents('php://input'), true);
-
-if (!$datosRecibidos || empty($datosRecibidos['id']) || empty($datosRecibidos['nombre'])) {
-    http_response_code(400);
-    echo json_encode([
-        "status" => 400,
-        "message" => "Faltan datos obligatorios (id o nombre)"
-    ]);
-    exit;
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405); echo json_encode(['message'=>'Solo POST']); exit;
 }
-
-$id = $datosRecibidos['id'];
-$nombre = $datosRecibidos['nombre'];
-
-// Aquí se ejecutaría la inserción (INSERT INTO ...) en base de datos.
-// Respondemos con éxito confirmando el nuevo elemento:
-http_response_code(201);
-echo json_encode([
-    "status" => 201,
-    "message" => "Producto agregado con éxito",
-    "data" => [
-        "id" => $id,
-        "nombre" => $nombre
-    ]
+$payload=json_decode(file_get_contents('php://input'),true);
+if (!is_array($payload) || empty($payload['nombre']) || !isset($payload['precio']) || !isset($payload['stock'])) {
+    http_response_code(422);
+    echo json_encode(['status'=>422,'message'=>'Se requiere nombre, precio y stock']); exit;
+}
+[$code,$data]=gateway_request('/api/v1/products','POST',[
+    'name'=>$payload['nombre'], 'price'=>(int)$payload['precio'],
+    'stock'=>(int)$payload['stock'], 'active'=>true
 ]);
+http_response_code($code);
+echo json_encode($code===201
+    ? ['status'=>201,'message'=>'Producto persistido en inventory','data'=>$data]
+    : ['status'=>$code,'message'=>$data['detail'] ?? 'Error al guardar'],JSON_UNESCAPED_UNICODE);
