@@ -91,6 +91,8 @@ services:
   web:
     image: php:8.3-cli
     working_dir: /site
+    environment:
+      API_GATEWAY_URL: http://gateway:8000
     volumes:
       - ../:/site:ro
     command: ["php","-S","0.0.0.0:8081","-t","/site"]
