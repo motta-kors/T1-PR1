@@ -244,9 +244,13 @@ if SERVICE=="orders":
     def mark_paid(oid:str,x_internal_key:str=Header(default=""),x_user_id:str=Header(default=""),x_user_role:str=Header(default="")):
         verify(x_internal_key,x_user_id,x_user_role,True)
         with conn() as c:
+            existing=c.execute("SELECT status FROM orders WHERE id=?",(oid,)).fetchone()
+            if not existing: raise HTTPException(404,"Pedido no encontrado")
+            if existing["status"]=="paid": return {"status":"paid","idempotent":True}
+            if existing["status"]!="pending": raise HTTPException(409,"Estado inválido")
             r=c.execute("UPDATE orders SET status='paid' WHERE id=? AND status='pending'",(oid,))
-            if not r.rowcount: raise HTTPException(409,"Estado inválido")
-        return {"status":"paid"}
+            if not r.rowcount: raise HTTPException(409,"Cambio concurrente")
+        return {"status":"paid","idempotent":False}
 
 if SERVICE=="payments":
     @app.post("/payments/{oid}")
