@@ -1,7 +1,7 @@
 name: Evaluacion 2 - Backend
 on:
   push:
-    branches: [semana-11]
+    branches: [semana-11, semana-14]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -34,6 +34,9 @@ jobs:
         run: python -m pytest evaluacion2/tests -v
       - name: Measure REST load
         run: python evaluacion2/tests/load_test.py --requests 100 --concurrency 5
+      - name: Capture CPU and memory
+        if: always()
+        run: docker stats --no-stream
       - name: Containers and service logs
         if: always()
         working-directory: evaluacion2
