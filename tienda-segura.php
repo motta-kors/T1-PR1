@@ -2,17 +2,17 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tienda segura | Minecraft Web</title>
+<title>Tienda segura | Gelato Artesanal</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="Estilo.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container">
-<a class="navbar-brand" href="index.php">Minecraft Web</a>
+<a class="navbar-brand" href="index.php">Gelato Artesanal</a>
 <div class="d-flex gap-3"><a class="text-white" href="productos.php">Productos originales</a><a class="text-white" href="contactos.php">Contacto</a></div>
 </div></nav>
 <main class="container my-4">
-<h1>Tienda y pedidos</h1><p>Catálogo de prueba integrado con los servicios privados. Los pagos son simulados: no hay cobros reales.</p>
+<h1>Helados artesanales y pedidos</h1><p>Catálogo de prueba integrado con los servicios privados. Los pagos son simulados: no hay cobros reales.</p>
 <div id="estado" class="alert alert-secondary" role="status">Consultando catálogo...</div>
 <div class="row g-4">
 <section class="col-lg-7"><h2 class="h4">Catálogo</h2><div id="catalogo" class="row g-3"></div></section>
@@ -37,13 +37,13 @@
 <div class="card text-dark"><div class="card-body">
 <h2 class="h5">Administrar catálogo</h2>
 <p class="small">Solo funciona con una cuenta de administrador creada desde el servidor.</p>
-<form id="producto" class="vstack gap-2"><input class="form-control" name="name" required placeholder="Producto">
+<form id="producto" class="vstack gap-2"><input class="form-control" name="name" required placeholder="Sabor o presentación de helado">
 <input class="form-control" name="price" type="number" min="0" required placeholder="Precio en CLP">
 <input class="form-control" name="stock" type="number" min="0" required placeholder="Stock">
 <button class="btn btn-dark">Agregar producto</button></form>
 </div></div>
 </section></div>
 </main>
-<footer class="bg-dark text-white text-center p-3 mt-auto">MiEmpresa@2026 · Demostración académica</footer>
+<footer class="bg-dark text-white text-center p-3 mt-auto">Gelato Artesanal · 2026 · Demostración académica</footer>
 <script src="tienda-segura.js"></script>
 </body></html>
