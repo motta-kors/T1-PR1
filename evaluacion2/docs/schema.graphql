@@ -1,0 +1,3 @@
+type Product { id: ID!, name: String!, price: Int!, stock: Int! }
+type OrderDetail { id: ID!, quantity: Int!, total: Int!, status: String!, product: Product }
+type Query { myOrders: [OrderDetail!]! }
