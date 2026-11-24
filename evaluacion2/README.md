@@ -1,12 +1,12 @@
-# Evaluación 2 — Backend seguro de Minecraft Web
+# Evaluación 2 — Backend seguro de Gelato Artesanal
 
-**Rama de trabajo:** `evaluacion2-backend-seguro` (no modifica `main`).
+**Rama de trabajo:** `semana-14` (no modifica `main`).
 **Referencia técnica:** ejemplos de FastAPI, autenticación, gateway y GraphQL del repositorio docente `evivanco/dwm20260203/Unidad 2`. Se reimplementaron las responsabilidades sin copiar usuarios ni secretos de ejemplo.
 
 ## Alcance y aclaración del profesor (8-11-2026)
 Esta entrega evalúa principalmente el backend, sus contratos y los eventos que representaría el frontend. **No requiere la integración completa con la web**, que corresponde a la entrega final. Se añadió opcionalmente `tienda-segura.php` sin quitar el contenido ni el menú existente. No confundir una demostración opcional con una obligación académica.
 
-**Caso asumido provisionalmente:** catálogo y pedidos de productos de Minecraft Web. Confirmar con el equipo el número exacto del caso de la lista de 40 antes de entregar. El sistema de pagos utiliza únicamente un simulador privado, no pagos bancarios reales.
+**Caso asumido provisionalmente:** catálogo y pedidos de helados artesanales. Confirmar con el equipo el número exacto del caso de la lista de 40 antes de entregar. El sistema de pagos utiliza únicamente un simulador privado, no pagos bancarios reales.
 
 ## Requisitos
 Docker Desktop y Docker Compose v2. Python 3.12 para las pruebas externas.
@@ -167,7 +167,7 @@ Solo Query, una operación, máximo 1.800 caracteres, profundidad 5, nodos 40. E
 **Consecuencias:** menos complejidad, pero deben medirse latencia p95, throughput, errores, CPU y memoria con carga reproducible antes de justificar formalmente no aplicar gRPC/analítica.
 
 ## Módulo 10: evidencia pendiente y limitaciones
-Implementación inicial del backend, frontend opcional, despliegue y pruebas automatizadas incluidas. **Sin evidencia de pruebas ejecutadas ni despliegue verificado.** Faltan mediciones de carga y completar datos del caso elegido. Para pagos reales se necesitaría proveedor de pago, webhook autenticado, reconciliación y garantías transaccionales; el simulador no debe presentarse como integración bancaria.
+Implementación inicial del backend, frontend opcional, despliegue y pruebas automatizadas incluidas. Existe evidencia histórica de CI en [ci-results.md](docs/ci-results.md). La rama semana-14 requiere una nueva ejecución; faltan mediciones de CPU y memoria y confirmar el número del caso. Para pagos reales se necesitaría proveedor de pago, webhook autenticado, reconciliación y garantías transaccionales; el simulador no debe presentarse como integración bancaria.
 
 ## Material a presentar al profesor
 1. Capturas de `docker compose ps` y `/health`.
@@ -185,4 +185,4 @@ Implementación inicial del backend, frontend opcional, despliegue y pruebas aut
 - [Prueba de carga reproducible](tests/load_test.py)
 - [GitHub Actions](../.github/workflows/evaluacion2-backend.yml)
 
-El proyecto está en la rama **semana-11**. Los diagramas son archivos Mermaid editables. El caso exacto entre los 40 debe confirmarse y los resultados deben medirse; esto no reemplaza evidencia de ejecución.
+El proyecto está en la rama **semana-14**. Los diagramas son archivos Mermaid editables. El caso exacto entre los 40 debe confirmarse y los resultados deben medirse; esto no reemplaza evidencia de ejecución.
