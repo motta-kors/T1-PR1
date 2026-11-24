@@ -6,4 +6,5 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 COPY services /app/services
 COPY gateway /app/gateway
 COPY graphql /app/graphql
+COPY docs/schema.graphql /app/docs/schema.graphql
 EXPOSE 8000
