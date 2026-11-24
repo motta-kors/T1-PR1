@@ -1,15 +1,12 @@
 import os
+from pathlib import Path
 import httpx
 from fastapi import FastAPI, Request, HTTPException
 from graphql import build_schema, graphql, parse, OperationType
 
 KEY=os.environ["INTERNAL_SERVICE_KEY"]
 app=FastAPI(title="GraphQL Gateway privado",docs_url=None,redoc_url=None)
-schema=build_schema("""
-type Product { id: ID!, name: String!, price: Int!, stock: Int! }
-type OrderDetail { id: ID!, quantity: Int!, total: Int!, status: String!, product: Product }
-type Query { myOrders: [OrderDetail!]! }
-""")
+schema=build_schema((Path(__file__).resolve().parent.parent / "docs" / "schema.graphql").read_text(encoding="utf-8"))
 
 async def internal(service,path,uid,role):
     try:
