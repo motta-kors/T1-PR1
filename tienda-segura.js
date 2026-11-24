@@ -28,19 +28,21 @@ async function catalogo() {
       const card=element("div","","card h-100 text-dark");
       const body=element("div","","card-body");
       body.append(element("h3",product.name,"h5"),element("p","$"+product.price.toLocaleString("es-CL")+" · Stock: "+product.stock));
-      const button=element("button","Pedir unidad","btn btn-success");
+      const quantity=element("input","","form-control mb-2");
+      quantity.type="number"; quantity.min="1"; quantity.max=String(Math.max(1,Math.min(50,product.stock))); quantity.value="1"; quantity.setAttribute("aria-label","Cantidad de helados");
+      const button=element("button","Pedir helados","btn btn-success");
       button.disabled=product.stock<1;
-      button.addEventListener("click",()=>pedir(product.id));
-      body.append(button);card.append(body);col.append(card);$("catalogo").append(col);
+      button.addEventListener("click",()=>{if(quantity.reportValidity()) pedir(product.id,Number(quantity.value));});
+      body.append(quantity,button);card.append(body);col.append(card);$("catalogo").append(col);
     }
     if(!products.length)$("catalogo").append(element("p","Aún no hay productos. Un administrador debe agregarlos."));
     status("Catálogo cargado.");
   } catch (err) { status("No se pudo obtener el catálogo: "+err.message); }
 }
-async function pedir(id) {
+async function pedir(id,quantity) {
   if (!token) {status("Primero inicia sesión.");return;}
   try {
-    const order=await api("/orders","POST",{product_id:id,quantity:1});
+    const order=await api("/orders","POST",{product_id:id,quantity});
     const payment=await api("/payments/"+order.id,"POST",{});
     status("Pedido creado por $"+order.total.toLocaleString("es-CL")+". Pago "+payment.status+" (sandbox, sin cobro real).");
     await Promise.all([catalogo(),pedidos()]);
