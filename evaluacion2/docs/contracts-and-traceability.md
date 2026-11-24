@@ -32,7 +32,7 @@ R01–R07 son requisitos **inferidos para la demostración**, no transcripción 
 ### Ejemplos de contratos JSON ficticios
 Registro: `{"email":"alguien@example.test","name":"Cliente de prueba","password":"UnaClaveFicticia123!"}`.
 Login: `{"email":"alguien@example.test","password":"UnaClaveFicticia123!"}` -> `{"access_token":"[TOKEN_OPACO]","token_type":"bearer","expires_in":1800}`.
-Producto: `{"name":"Bloque decorativo","price":5000,"stock":10,"active":true}` -> `{"id":"[UUID]","name":"Bloque decorativo","price":5000,"stock":10,"active":true}`.
+Producto: `{"name":"Helado artesanal de pistacho","price":5000,"stock":10,"active":true}` -> `{"id":"[UUID]","name":"Helado artesanal de pistacho","price":5000,"stock":10,"active":true}`.
 Pedido: `{"product_id":"[UUID]","quantity":2}` -> `{"id":"[UUID]","status":"pending","total":10000}`.
 Pago: `POST /payments/[UUID]` -> `{"id":"[UUID]","order_id":"[UUID]","amount":10000,"status":"pending","mode":"sandbox"}`.
 Error: `{"detail":"Stock insuficiente"}` con código 409.
