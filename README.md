@@ -1,4 +1,4 @@
-# T1-PR1 — Minecraft Web + Evaluación 2
+# T1-PR1 — Gelato Artesanal — Semana 14
 
 Este repositorio conserva el sitio PHP/Bootstrap original y agrega una implementación académica del backend seguro solicitada en la Evaluación de la Unidad 2.
 
@@ -22,4 +22,7 @@ Este repositorio conserva el sitio PHP/Bootstrap original y agrega una implement
 
 **Aclaración docente del 08-11-2026:** en esta evaluación la integración visual completa del frontend no es exigencia obligatoria; sí deben representarse los eventos y datos de frontend mediante servicios de backend, roles y verbos significativos.
 
-**No entregar resultados falsos.** El repositorio contiene pruebas, pero las evidencias deben producirse mediante ejecuciones exitosas. El número/nombre del caso de los 40 del curso debe ser confirmado con el equipo; la muestra actual utiliza Minecraft Web como contexto.
+**Validación:** El repositorio contiene pruebas, pero las evidencias deben producirse mediante ejecuciones exitosas. El número/nombre del caso de los 40 del curso debe ser confirmado con el equipo; el contexto del proyecto es Gelato Artesanal.
+
+## Semana 14
+Catálogo de helados artesanales, gestión de existencias, clientes, pedidos y pagos de prueba. Consulte el [informe técnico](evaluacion2/docs/informe-gelato.md) y el [esquema GraphQL](evaluacion2/docs/schema.graphql). Los resultados históricos están en [ci-results](evaluacion2/docs/ci-results.md); la nueva versión requiere una ejecución propia.
