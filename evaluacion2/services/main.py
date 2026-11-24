@@ -4,7 +4,7 @@ from uuid import uuid4
 from contextlib import contextmanager
 import httpx
 from fastapi import FastAPI, HTTPException, Header
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 SERVICE = os.environ["SERVICE"]
 KEY = os.environ["INTERNAL_SERVICE_KEY"]
@@ -63,13 +63,15 @@ class Register(BaseModel):
     password: str=Field(min_length=10,max_length=128)
 class Login(BaseModel):
     email: str
-    password: str
+    password: str=Field(min_length=1,max_length=128)
 class Product(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     name: str=Field(min_length=1,max_length=120)
     price: int=Field(ge=0)
     stock: int=Field(ge=0)
     active: bool=True
 class Order(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     product_id: str
     quantity: int=Field(ge=1,le=50)
 class Reserve(BaseModel):
